@@ -11,7 +11,7 @@ class Game
   end
   
   def immunity_challenge
-    prng = Random.new(1234)
+    prng = Random.new()
     index = prng.rand(@tribes.length)
     return @tribes[index]
   end
@@ -26,12 +26,15 @@ class Game
     @tribes.each do |tribe|
       member_result += tribe.members
     end
-    return Tribe.new({name: tribe_name, members: member_result})
+    new_tribe = Tribe.new({name: tribe_name, members: member_result})
+    self.clear_tribes
+    self.add_tribe(new_tribe)
+    return new_tribe
   end
   
   def individual_immunity_challenge
-    merged_tribe = self.merge("final")
-    prng = Random.new(1234)
+    merged_tribe = @tribes[0]
+    prng = Random.new()
     index = prng.rand(merged_tribe.members.length)
     return merged_tribe.members[index]
   end

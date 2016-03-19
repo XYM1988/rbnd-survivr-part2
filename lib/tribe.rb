@@ -11,7 +11,16 @@ class Tribe
     return @name
   end
 
-  def tribal_council(immune)
+  def remove_member(member)
+    result = []
+    @members.each do |each_one|
+      if each_one != member
+        result.push(each_one)
+      end
+    end
+    @members = result
+  end
+  def tribal_council(immune = nil)
     result = nil
     flag = true
     prng = Random.new(1234)

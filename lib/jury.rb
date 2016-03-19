@@ -41,8 +41,10 @@ class Jury
     firstone = final_result.keys[0]
     secondone = final_result.keys[1]
     if final_result[firstone] > final_result[secondone]
+      puts "The winner is: #{firstone} !"
       return firstone
     else
+      puts "The winner is: #{secondone} !"
       return secondone
     end
   end
