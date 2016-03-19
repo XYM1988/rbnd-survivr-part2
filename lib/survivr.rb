@@ -3,6 +3,8 @@ require_relative "tribe"
 require_relative "contestant"
 require_relative "jury"
 
+require 'colorizr'
+
 #After your tests pass, uncomment this code below
 #=========================================================
 # Create an array of twenty hopefuls to compete on the island of Borneo
@@ -20,6 +22,7 @@ require_relative "jury"
 
 #This is where you will write your code for the three phases
 def phase_one
+  puts "Phase_One Enters Now".red
   elimations = []
   8.times do
     failed_tribe = @borneo.immunity_challenge
@@ -31,6 +34,7 @@ def phase_one
 end
 
 def phase_two
+  puts "Phase_Two Enters Now".red
   elimations = []
   3.times do
     immune_guy = @borneo.individual_immunity_challenge
@@ -42,6 +46,7 @@ def phase_two
 end
 
 def phase_three
+  puts "Phase_Three Enters Now".red
   7.times do
     jury_member = @borneo.tribes[0].tribal_council
     @borneo.tribes[0].remove_member(jury_member)

@@ -1,8 +1,10 @@
 require 'pp'
+require 'colorizr'
 class Jury
   attr_reader :members
   attr_writer :members
   def initialize
+    puts "Creating Jury now:".light_blue
     @members = []
   end
   
@@ -32,6 +34,7 @@ class Jury
     return result
   end
   def report_votes(final_list)
+    puts "Vote results:".red
     final_list.each do |list_member, vote|
       puts "#{list_member.name} => #{vote}"
     end
@@ -41,10 +44,10 @@ class Jury
     firstone = final_result.keys[0]
     secondone = final_result.keys[1]
     if final_result[firstone] > final_result[secondone]
-      puts "The winner is: #{firstone} !"
+      puts "The winner is: #{firstone} !".pink
       return firstone
     else
-      puts "The winner is: #{secondone} !"
+      puts "The winner is: #{secondone} !".pink
       return secondone
     end
   end

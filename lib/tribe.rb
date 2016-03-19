@@ -18,6 +18,7 @@ class Tribe
         result.push(each_one)
       end
     end
+    puts "#{member.name}".blue + "is removed"
     @members = result
   end
   def tribal_council(immune = nil)
